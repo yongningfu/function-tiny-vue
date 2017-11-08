@@ -1,17 +1,12 @@
 /**
  * 
  * Vue的函数式编程实现
- * @param options | {
  *  el
  *  data
  *  method
  *  watch
- *  }
- * 
  * 
  */
-
-var TEST = true;
 
 var Dep = require('./dep');
 
