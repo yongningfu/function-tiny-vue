@@ -132,41 +132,9 @@ function Vue(options) {
   for (let key in _watch) {
     Watch(key, _watch[key]);
   }
-  // 解析 dom attr
 
-  //var root = document.getElementById(_el);
+  return instance;
 }
 
+module.exports = Vue;
 
-
-var data = {
-  name: 'namge',
-  age: 23,
-  work: {
-    program: {
-      name: 'js'
-    }
-  }
-}
-
-Vue({
-  data,
-  watch: {
-    name: function(newValue) {
-      console.log(newValue);
-    },
-    'work.program.name': function(newValue) {
-      console.log(newValue);
-    },
-    work: function() {
-      console.log('work');
-    }
-  }
-});
-
-
-data.name = 'name1';
-data.name = 'name2';
-data.name = 'name3';
-data.work.program.name = 'python';
-data.work.program.name = 'js'
