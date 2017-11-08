@@ -25,6 +25,11 @@
       reverse: function() {
         data.message = data.message.split('').reverse().join('');
       }
+    },
+    watch: {
+      message: function(newValue) {
+        console.log(newValue);
+      }
     }
   })
 </script>

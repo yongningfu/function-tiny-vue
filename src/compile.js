@@ -53,6 +53,3 @@ function compile(rootNode) {
 }
 
 module.exports = compile;
-// if (typeof module) {
-//   module.exports = compile;
-// }
