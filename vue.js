@@ -9,6 +9,8 @@
  */
 
 var Dep = require('./dep');
+var compile = require('./compile');
+var Directive = require('./directive');
 
 function Vue(options) {
 
@@ -35,6 +37,9 @@ function Vue(options) {
     injectDependentWatch(props);
     __WATCH__ = null;
   }
+
+  // 导出供 外部使用
+  instance.Watch = Watch;
 
   function injectDependentWatch(props) {
     var keys = props.split('.');
@@ -128,8 +133,15 @@ function Vue(options) {
     Watch(key, _watch[key]);
   }
 
+
+  // 编译dom指令
+  var directiveDiscriptors = compile(document.querySelector(_el));
+  for (var discriptor of directiveDiscriptors) {
+    Directive(discriptor, instance);
+  }
+
   return instance;
 }
 
-module.exports = Vue;
+window.Vue = Vue;
 
